@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Ninja Run</title>
+</head>
+<body>
+    <div id="wrapper">
+    <canvas id="player-canvas"></canvas>
+    <canvas id="enemy-canvas"></canvas>
+    <canvas id="background-canvas"></canvas>
+
+    <img class="sprite" src="images/ninja-run.png" id="ninja-sprite">
+    <img class="sprite" src="images/enemy-run.png" id="enemy-sprite">
+    <img class="sprite" src="images/ninja-jump.png" id="ninja-jump-sprite">
+    <img class="sprite" src="images/ninja-dead.png" id="ninja-dead-sprite">
+    <img class="sprite" src="images/background.jpg" id="background">
+    <img src="images/game-over.png" id="game-over">
+    
+    <script src="js/sprites.js"></script>
+    <script src="js/physical-object.js"></script>
+    <script src="js/enemyGenerator.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/gameEngine.js"></script>
+</div>
+</body>
+</html>
