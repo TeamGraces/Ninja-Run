@@ -1,0 +1,25 @@
+body {
+    background-color: #d88c64;
+}
+canvas {
+    position: absolute;
+}
+#wrapper {
+     position: absolute;
+    width: 960px;
+    margin-top: 1%;
+    margin-left: 10%;
+    text-align: center;
+}
+#player-canvas {
+    z-index: 5;
+}
+#enemy-canvas {
+    z-index: 3;
+}
+#background {
+    z-index: 1;
+}
+.sprite {
+    display: none;
+}
