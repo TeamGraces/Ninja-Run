@@ -20,7 +20,8 @@ function createPhysicalObject(options) {
             enemyY = otherPhysicalBody.coordinates.y + (otherPhysicalBody.height / 2);
 
         // distance between centers
-        let distance = Math.sqrt((ninjaX - enemyX - distanceOnCollision) * (ninjaX - enemyX - distanceOnCollision) + (ninjaY - enemyY) * (ninjaY - enemyY));
+        let distance = Math.sqrt((ninjaX - enemyX - distanceOnCollision) * (ninjaX - enemyX - distanceOnCollision) +
+            (ninjaY - enemyY - distanceOnCollision) * (ninjaY - enemyY - distanceOnCollision));
 
         return distance <= (this.radius + otherPhysicalBody.radius);
     }
