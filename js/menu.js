@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
     }
 
     const $playButton = createjQueryButton();
-    $playButton.text('Play')
+    $playButton.text('New game')
         .on('click', gameEngine);
 
     const $howToPlayButton = createjQueryButton();
