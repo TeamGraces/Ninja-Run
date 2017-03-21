@@ -23,7 +23,7 @@ function createPhysicalObject(options) {
         let distance = Math.sqrt((ninjaX - enemyX - distanceOnCollision) * (ninjaX - enemyX - distanceOnCollision) +
             (ninjaY - enemyY - distanceOnCollision) * (ninjaY - enemyY - distanceOnCollision));
 
-        return distance <= (this.radius + otherPhysicalBody.radius);
+        return distance <= (this.radius + otherPhysicalBody.radius - distanceOnCollision);
     }
 
     let physicalObject = {

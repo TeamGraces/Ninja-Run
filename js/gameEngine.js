@@ -4,7 +4,7 @@ function gameEngine(){
     const width = 924,
         height = 612,
         jumpingHeight = 0.27,
-        distanceBetweenSpawningEnemies = 25,
+        distanceBetweenSpawningEnemies = 45,
         framesNumber = 10,
         backgroundSpeed = 10;
 
@@ -167,7 +167,7 @@ function gameEngine(){
             }
         }
         // spawning enemies
-        if (Math.random() < 0.008) {
+        if (Math.random() < 0.007) {
             if (enemies.length) {
                 let lastEnemy = enemies[enemies.length - 1];
                 let starting = Math.max(lastEnemy.body.coordinates.x + lastEnemy.body.width + distanceBetweenSpawningEnemies, width);
