@@ -1,5 +1,6 @@
-window.addEventListener('load', function () {
-
+//*globals window document */
+//
+function gameEngine(){
     const width = 924,
         height = 612,
         jumpingHeight = 0.27,
@@ -185,4 +186,4 @@ window.addEventListener('load', function () {
     }
 
     gameLoop();
-});
+}

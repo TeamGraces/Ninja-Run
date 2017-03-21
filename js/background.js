@@ -32,7 +32,10 @@ function createBackground(options) {
     let background = {
         image: backgroundImg,
         speedX: options.speedX,
-        coordinates: { x: 0, y: 0 },
+        coordinates: {
+            x: 0,
+            y: 0
+        },
         render: render,
         update: update
     };
