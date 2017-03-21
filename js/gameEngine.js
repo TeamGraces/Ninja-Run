@@ -4,7 +4,7 @@ function gameEngine(){
     const width = 924,
         height = 612,
         jumpingHeight = 0.27,
-        distanceBetweenSpawningEnemies = 45,
+        distanceBetweenSpawningEnemies = 100,
         framesNumber = 10,
         backgroundSpeed = 10;
 
