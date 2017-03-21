@@ -1,6 +1,6 @@
-//*globals window document */
-//
-function gameEngine(){
+/*globals window document */
+
+function gameEngine() {
     const width = 924,
         height = 612,
         jumpingHeight = 0.27,
@@ -25,9 +25,18 @@ function gameEngine(){
     });
 
     let ninjaBody = createPhysicalObject({
-        coordinates: { x: 10, y: height - ninjaSprite.height },
-        defaultAcceleration: { x: 5, y: 5 },
-        speed: { x: 0, y: 0 },
+        coordinates: {
+            x: 10,
+            y: height - ninjaSprite.height
+        },
+        defaultAcceleration: {
+            x: 5,
+            y: 5
+        },
+        speed: {
+            x: 0,
+            y: 0
+        },
         width: ninjaSprite.width,
         height: ninjaSprite.height
     });
@@ -65,9 +74,10 @@ function gameEngine(){
                 ninjaBody.accelerate('x', -1);
                 break;
             case 38: // up
+                event.keyCode = false;
                 if (ninjaBody.coordinates.y < (height - ninjaBody.height)) {
                     return;
-                }
+                }                
 
                 ninjaBody.accelerate('y', -1.5);
                 break;
@@ -89,6 +99,7 @@ function gameEngine(){
         }
         ninjaBody.speed.x = 0;
     });
+   
 
     function applyGravityY(physicalBody, gravity) {
 
@@ -117,6 +128,8 @@ function gameEngine(){
     let currentNinjaSprite = ninjaSprite;
 
     function gameLoop() {
+
+        
 
         applyGravityY(ninjaBody, jumpingHeight); //jumping height
 
@@ -163,6 +176,7 @@ function gameEngine(){
                     0,
                     0
                 );
+
                 return;
             }
         }

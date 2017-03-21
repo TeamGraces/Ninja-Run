@@ -1,4 +1,4 @@
-/*globals  $ createBackground gameEngine howToPlay window*/
+/*globals  $ createBackground gameEngine restartGame howToPlay window*/
 window.addEventListener('load', function () {
     const width = 924,
         height = 612,
@@ -23,18 +23,25 @@ window.addEventListener('load', function () {
         return $button;
     }
 
-    const $playButton = createjQueryButton();
-    $playButton.text('New game')
-        .on('click', gameEngine);
+    const $newGameButton = createjQueryButton();
+    $newGameButton.text('New game')
+        .one('click', gameEngine);
+
+    const $restartButton = createjQueryButton();
+    $restartButton.text('Restart')
+        .on('click', restartGame)
+        .on('restartGame', gameEngine());
 
     const $howToPlayButton = createjQueryButton();
     $howToPlayButton.text('How to play')
-                    .one('click', howToPlay);
-   
-    $playButton.appendTo($('div'));
+        .one('click', howToPlay);
+
+    $newGameButton.appendTo($('div'));
+    $restartButton.appendTo($('div'));
     $howToPlayButton.appendTo($('div'));
-    
+
     $div.appendTo($('#wrapper'));
 
 
 });
+
