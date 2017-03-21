@@ -29,9 +29,8 @@ window.addEventListener('load', function () {
 
     const $restartButton = createjQueryButton();
     $restartButton.text('Restart')
-        .on('click', restartGame)
-        .on('restartGame', gameEngine());
-
+        .on('click', restartGame);
+    
     const $howToPlayButton = createjQueryButton();
     $howToPlayButton.text('How to play')
         .one('click', howToPlay);
@@ -44,4 +43,5 @@ window.addEventListener('load', function () {
 
 
 });
+ 
 

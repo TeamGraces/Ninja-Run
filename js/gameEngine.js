@@ -129,7 +129,7 @@ function gameEngine() {
 
     function gameLoop() {
 
-        
+         
 
         applyGravityY(ninjaBody, jumpingHeight); //jumping height
 
