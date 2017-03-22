@@ -64,7 +64,7 @@ function gameEngine() {
         loopTickPerFrame: 3
     });
 
-    document.addEventListener('keydown', function (event) {
+    document.addEventListener('keydown', function(event) {
         switch (event.keyCode) {
             case 37: // left
                 if (ninjaBody.speed.x < 0) {
@@ -77,8 +77,7 @@ function gameEngine() {
                 event.keyCode = false;
                 if (ninjaBody.coordinates.y < (height - ninjaBody.height)) {
                     return;
-                }                
-
+                }
                 ninjaBody.accelerate('y', -1.5);
                 break;
             case 39: // right
@@ -93,23 +92,24 @@ function gameEngine() {
         }
     });
 
-    window.addEventListener('keyup', function (event) {
+    window.addEventListener('keyup', function(event) {
         if ((event.keyCode !== 37) && (event.keyCode !== 39)) {
             return;
         }
         ninjaBody.speed.x = 0;
     });
-   
+
 
     function applyGravityY(physicalBody, gravity) {
 
         // checks if the ninja is on the ground
-        if (physicalBody.coordinates.y === (height - physicalBody.height)) {
+        if (physicalBody.coordinates.y === (height - physicalBody.height + 4)) {
             return;
         }
 
-        if (physicalBody.coordinates.y > (height - physicalBody.height)) {
+        if (physicalBody.coordinates.y > (height - physicalBody.height + 4)) {
             physicalBody.coordinates.y = height - physicalBody.height;
+            physicalBody.speed.y -= 1.4;
             return;
         }
 
@@ -128,8 +128,6 @@ function gameEngine() {
     let currentNinjaSprite = ninjaSprite;
 
     function gameLoop() {
-
-         
 
         applyGravityY(ninjaBody, jumpingHeight); //jumping height
 
@@ -164,12 +162,18 @@ function gameEngine() {
 
                 //TODO: fix the dead sprite
 
-                //    let lastNinjaCoordinates = ninjaBody.move();
+                /* let lastNinjaCoordinates = ninjaBody.move();
 
-                // currentNinjaSprite = ninjaDeadSprite;
+                 playerContext.clearRect(ninjaBody.coordinates.x,
+                     ninjaBody.coordinates.y,
+                     ninjaBody.width,
+                     ninjaBody.height
+                 );
 
-                // currentNinjaSprite.render(ninjaBody.coordinates, lastNinjaCoordinates);
-                // currentNinjaSprite.update();
+                 currentNinjaSprite = ninjaDeadSprite;
+
+                 ninjaDeadSprite.render(ninjaBody.coordinates, lastNinjaCoordinates);
+                 ninjaDeadSprite.update(); */
 
                 playerContext.drawImage(
                     document.getElementById('game-over'),
