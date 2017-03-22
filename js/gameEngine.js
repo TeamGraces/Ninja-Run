@@ -3,10 +3,10 @@
 function gameEngine() {
     const width = 924,
         height = 612,
-        jumpingHeight = 0.27,
-        distanceBetweenSpawningEnemies = 100,
+        jumpingHeight = 0.23,
+        distanceBetweenSpawningEnemies = 120,
         framesNumber = 10,
-        backgroundSpeed = 10;
+        backgroundSpeed = 9;
 
     let playerCanvas = document.getElementById('player-canvas'),
         playerContext = playerCanvas.getContext('2d'),
@@ -74,7 +74,7 @@ function gameEngine() {
                 ninjaBody.accelerate('x', -1);
                 break;
             case 38: // up
-                event.keyCode = false;
+                //event.keyCode = false;
                 if (ninjaBody.coordinates.y < (height - ninjaBody.height)) {
                     return;
                 }
@@ -103,13 +103,14 @@ function gameEngine() {
     function applyGravityY(physicalBody, gravity) {
 
         // checks if the ninja is on the ground
-        if (physicalBody.coordinates.y === (height - physicalBody.height + 4)) {
+        if (physicalBody.coordinates.y === (height - physicalBody.height + 3.8)) {
+            physicalBody.speed.y = 0;
             return;
         }
 
-        if (physicalBody.coordinates.y > (height - physicalBody.height + 4)) {
+        if (physicalBody.coordinates.y > (height - physicalBody.height + 3.8)) {
             physicalBody.coordinates.y = height - physicalBody.height;
-            physicalBody.speed.y -= 1.4;
+            physicalBody.speed.y = 0;
             return;
         }
 
@@ -185,7 +186,7 @@ function gameEngine() {
             }
         }
         // spawning enemies
-        if (Math.random() < 0.007) {
+        if (Math.random() < 0.005) {
             if (enemies.length) {
                 let lastEnemy = enemies[enemies.length - 1];
                 let starting = Math.max(lastEnemy.body.coordinates.x + lastEnemy.body.width + distanceBetweenSpawningEnemies, width);
