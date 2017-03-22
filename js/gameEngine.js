@@ -78,6 +78,8 @@ function gameEngine() {
                 if (ninjaBody.coordinates.y < (height - ninjaBody.height)) {
                     return;
                 }
+
+                sounds.playJump();
                 ninjaBody.accelerate('y', -1.5);
                 break;
             case 39: // right
@@ -128,6 +130,7 @@ function gameEngine() {
 
     let currentNinjaSprite = ninjaSprite;
 
+
     function gameLoop() {
 
         applyGravityY(ninjaBody, jumpingHeight); //jumping height
@@ -176,6 +179,8 @@ function gameEngine() {
                  ninjaDeadSprite.render(ninjaBody.coordinates, lastNinjaCoordinates);
                  ninjaDeadSprite.update(); */
 
+                sounds.playGameOver();
+
                 playerContext.drawImage(
                     document.getElementById('game-over'),
                     0,
@@ -205,4 +210,6 @@ function gameEngine() {
     }
 
     gameLoop();
+    sounds.playBackground();
+
 }

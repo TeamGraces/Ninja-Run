@@ -32,3 +32,16 @@ canvas {
     width: 25%;
     margin: 1%;
 }
+
+.sound {
+    width: 3%;
+    height: 5%;
+    position: absolute;
+    left: 71%;
+    top: 2%;
+    z-index: 100;
+}
+
+#soundOff {
+    display: none;
+}
