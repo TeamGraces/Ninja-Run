@@ -8,9 +8,17 @@ function gameEngine() {
         framesNumber = 10,
         backgroundSpeed = 9;
 
+    //The main score
+    let score = 0;
+
     let playerCanvas = document.getElementById('player-canvas'),
         playerContext = playerCanvas.getContext('2d'),
         playerImg = document.getElementById('ninja-sprite');
+
+    //We select the span element witch is our score with class scoreValue
+    let scoreSelector = document.getElementsByClassName('scoreValue')[0];
+
+
 
     playerCanvas.width = width;
     playerCanvas.height = height;
@@ -151,8 +159,14 @@ function gameEngine() {
 
             // removing enemies when they get out of the canvas
             if (enemies[i].body.coordinates.x < -enemies[i].body.width) {
+
+                //Scores 10 points for every passed enemy
+                score += 10;
                 enemies.splice(i, 1);
                 i -= 1;
+
+                //Change the score
+                scoreSelector.innerHTML = score;
                 continue;
             }
 

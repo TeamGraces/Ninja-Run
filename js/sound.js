@@ -1,4 +1,5 @@
-let sounds = (function () {
+let sounds = (function() {
+
     let imgSoundOn = document.getElementById('soundOn'),
         imgSoundOff = document.getElementById('soundOff'),
         backgroundMusic = new Audio('sounds/backgroundMusic.wav'),
@@ -13,20 +14,20 @@ let sounds = (function () {
     }
 
     function playJumpSound() {
-        if(isSoundOn) {
+        if (isSoundOn) {
             jumpSound.play();
         }
 
     }
 
     function playBackgroundMusic() {
-        if(isSoundOn) {
+        if (isSoundOn) {
             backgroundMusic.play();
         }
     }
 
     function playGameOverSound() {
-        if(isSoundOn) {
+        if (isSoundOn) {
             backgroundMusic.pause();
             jumpSound.pause();
             gameOverSound.play();
@@ -48,12 +49,12 @@ let sounds = (function () {
             imgSoundOn.style.display = 'inline';
         }
     }
-    
+
     function soundsOn() {
         isSoundOn = true;
         backgroundMusic.play();
     }
-    
+
     function soundsOff() {
         isSoundOn = false;
         backgroundMusic.pause();
@@ -67,6 +68,3 @@ let sounds = (function () {
         playGameOver: playGameOverSound,
     }
 })();
-
-
-
