@@ -1,8 +1,11 @@
-function createEnemy(offsetX) {
+const width = 924,
+    height = 613,
+    framesNumber = 10,
+    distanceBetweenSpawningEnemies = 120;
 
-    const width = 924,
-        height = 613,
-        framesNumber = 10;
+    var enemies = [];
+
+function createEnemy(offsetX) {
 
     let enemyCanvas = document.getElementById('enemy-canvas'),
         enemyContext = enemyCanvas.getContext('2d'),
@@ -32,4 +35,19 @@ function createEnemy(offsetX) {
         sprite: enemySprite,
         body: enemyBody
     };
+}
+
+function spawnEnemies() {
+    
+    if (Math.random() < 0.005) {
+        if (enemies.length) {
+            var lastEnemy = enemies[enemies.length - 1];
+            var starting = Math.max(lastEnemy.body.coordinates.x + lastEnemy.body.width + distanceBetweenSpawningEnemies, width);
+            var newEnemy = createEnemy(starting);
+            enemies.push(newEnemy);
+
+        } else {
+            enemies.push(createEnemy(width));
+        }
+    }
 }

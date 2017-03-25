@@ -18,8 +18,6 @@ function gameEngine() {
     //We select the span element witch is our score with class scoreValue
     let scoreSelector = document.getElementsByClassName('scoreValue')[0];
 
-
-
     playerCanvas.width = width;
     playerCanvas.height = height;
 
@@ -135,14 +133,12 @@ function gameEngine() {
         speedX: backgroundSpeed
     });
 
-    let enemies = [];
-
     let currentNinjaSprite = ninjaSprite;
 
 
     function gameLoop() {
 
-        applyGravityY(ninjaBody, jumpingHeight); //jumping height
+        applyGravityY(ninjaBody, jumpingHeight); 
 
         let lastNinjaCoordinates = ninjaBody.move();
 
@@ -172,7 +168,6 @@ function gameEngine() {
 
                 enemies.splice(i, 1);
                 i -= 1;
-
                 continue;
             }
 
@@ -183,21 +178,6 @@ function gameEngine() {
 
             //end
             if (ninjaBody.colides(enemies[i].body)) {
-
-                //TODO: fix the dead sprite
-
-                /* let lastNinjaCoordinates = ninjaBody.move();
-
-                 playerContext.clearRect(ninjaBody.coordinates.x,
-                     ninjaBody.coordinates.y,
-                     ninjaBody.width,
-                     ninjaBody.height
-                 );
-
-                 currentNinjaSprite = ninjaDeadSprite;
-
-                 ninjaDeadSprite.render(ninjaBody.coordinates, lastNinjaCoordinates);
-                 ninjaDeadSprite.update(); */
 
                 sounds.playGameOver();
 
@@ -211,18 +191,8 @@ function gameEngine() {
             }
         }
         // spawning enemies
-        if (Math.random() < 0.005) {
-            if (enemies.length) {
-                let lastEnemy = enemies[enemies.length - 1];
-                let starting = Math.max(lastEnemy.body.coordinates.x + lastEnemy.body.width + distanceBetweenSpawningEnemies, width);
-                let newEnemy = createEnemy(starting);
-                enemies.push(newEnemy);
-
-            } else {
-                enemies.push(createEnemy(width));
-            }
-
-        }
+        spawnEnemies();
+        
         background.render();
         background.update();
 
