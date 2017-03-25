@@ -156,17 +156,22 @@ function gameEngine() {
 
         // update enemies
         for (let i = 0; i < enemies.length; i += 1) {
+            //score 10 points for every passed ninja
+            if (enemies[i].body.coordinates.x < ninjaBody.coordinates.x) {
+                if ((ninjaBody.coordinates.x - enemies[i].body.coordinates.x) < 10 &&
+                    (enemies[i].body.coordinates.y - ninjaBody.coordinates.y) > 2) {
+                    score += 10;
+                }
+            }
+            //change current score:
+            scoreSelector.innerHTML = score;
 
             // removing enemies when they get out of the canvas
             if (enemies[i].body.coordinates.x < -enemies[i].body.width) {
 
-                //Scores 10 points for every passed enemy
-                score += 10;
                 enemies.splice(i, 1);
                 i -= 1;
 
-                //Change the score
-                scoreSelector.innerHTML = score;
                 continue;
             }
 
