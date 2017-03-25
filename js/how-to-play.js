@@ -24,7 +24,10 @@ function howToPlay() {
     $upArrow.appendTo($div);
 
 
-    $div.children().css('margin-left', 5 + 'px');
+    $div.children()
+        .css('margin-left', 10)
+        .css('color', '#d43f3a')
+        .css('font-size', '1.2em');
 
     $div.appendTo($('#wrapper'));
 }
