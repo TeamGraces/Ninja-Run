@@ -1,4 +1,4 @@
-/*globals window document */
+/*globals $ window document */
 
 function gameEngine() {
     const width = 924,
@@ -46,7 +46,8 @@ function gameEngine() {
             y: 0
         },
         width: ninjaSprite.width,
-        height: ninjaSprite.height
+        height: ninjaSprite.height,
+        isNinja: true
     });
 
     let ninjaJumpingImg = document.getElementById('ninja-jump-sprite');
@@ -82,7 +83,7 @@ function gameEngine() {
                 ninjaBody.accelerate('x', -1);
                 break;
             case 38: // up
-                //event.keyCode = false;
+
                 if (ninjaBody.coordinates.y < (height - ninjaBody.height)) {
                     return;
                 }
