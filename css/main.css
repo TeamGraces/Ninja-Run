@@ -34,10 +34,10 @@ canvas {
 }
 
 .sound {
-    width: 3%;
+    width: 4%;
     height: 5%;
     position: absolute;
-    left: 81%;
+    left: 80%;
     top: 4%;
     z-index: 100;
 }
@@ -57,4 +57,26 @@ canvas {
 
 #soundOff {
     display: none;
+}
+
+#Capa_1 {
+    position: absolute;
+    display: block;
+    top: 2%;
+    left: 20%;
+    z-index: 99;
+    width: 24%;
+    height: 24%;
+}
+
+.main-svg-icon {
+    display: none;
+}
+
+use {
+    position: absolute;
+    top: 5%;
+    width: 10%;
+    height: 10%;
+    z-index: 98;
 }
