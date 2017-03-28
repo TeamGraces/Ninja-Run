@@ -138,7 +138,7 @@ function gameEngine() {
 
     function gameLoop() {
 
-        applyGravityY(ninjaBody, jumpingHeight); 
+        applyGravityY(ninjaBody, jumpingHeight);
 
         let lastNinjaCoordinates = ninjaBody.move();
 
@@ -165,7 +165,6 @@ function gameEngine() {
 
             // removing enemies when they get out of the canvas
             if (enemies[i].body.coordinates.x < -enemies[i].body.width) {
-
                 enemies.splice(i, 1);
                 i -= 1;
                 continue;
@@ -176,23 +175,21 @@ function gameEngine() {
             enemies[i].sprite.render(enemies[i].body.coordinates, lastEnemyCoordinates);
             enemies[i].sprite.update();
 
+
             //end
             if (ninjaBody.colides(enemies[i].body)) {
-
-                sounds.playGameOver();
-
-                playerContext.drawImage(
-                    document.getElementById('game-over'),
-                    0,
-                    0
-                );
-
-                return;
+                //reduces lifeCount and checks if ninja is dead
+                if (!loseLife(ninjaBody, ninjaSprite, playerContext)) {
+                    sounds.playLoseLife();
+                } else {
+                    return;
+                }
             }
         }
+
         // spawning enemies
         spawnEnemies();
-        
+
         background.render();
         background.update();
 
