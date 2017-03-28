@@ -5,7 +5,10 @@ let sounds = (function() {
         backgroundMusic = new Audio('sounds/backgroundMusic.wav'),
         jumpSound = new Audio('sounds/jump.wav'),
         gameOverSound = new Audio('sounds/gameOver.wav'),
+        loseLife = new Audio('sounds/loseLife.wav'),
         isSoundOn = true;
+
+    loseLife.playbackRate = '2.2';
 
     let soundImages = document.getElementsByClassName('sound');
 
@@ -31,6 +34,12 @@ let sounds = (function() {
             backgroundMusic.pause();
             jumpSound.pause();
             gameOverSound.play();
+        }
+    }
+
+    function playLoseLife() {
+        if (isSoundOn) {
+            loseLife.play();
         }
 
     }
@@ -66,5 +75,6 @@ let sounds = (function() {
         playBackground: playBackgroundMusic,
         playJump: playJumpSound,
         playGameOver: playGameOverSound,
-    }
+        playLoseLife: playLoseLife
+    };
 })();
