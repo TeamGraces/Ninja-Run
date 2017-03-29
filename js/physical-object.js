@@ -1,20 +1,21 @@
 function createPhysicalObject(options) {
 
-    const distanceOnCollision = 15;
+    const distanceOnCollision = 15,
+        offsetX = 4;
 
     function move() {
 
         let lastCoordinates = { x: this.coordinates.x, y: this.coordinates.y };
 
         if (this.isNinja) { // ninja must stay in the canvas, but enemy must not
-            if (this.coordinates.x + this.width < 924 && this.coordinates.x > 0) {
+            if (this.coordinates.x + this.width < width && this.coordinates.x > this.width / 3 + offsetX) {
                 this.coordinates.x += this.speed.x;
                 this.coordinates.y += this.speed.y;
             } else {
-                if (this.coordinates.x > 920 - this.width) {
-                    this.coordinates.x = lastCoordinates.x - 4;
+                if (this.coordinates.x > width - this.width - offsetX) {
+                    this.coordinates.x = lastCoordinates.x - offsetX;
                 } else {
-                    this.coordinates.x = lastCoordinates.x + 4;
+                    this.coordinates.x = lastCoordinates.x + offsetX;
                 }
             }
         } else {
