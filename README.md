@@ -22,5 +22,5 @@ Jump game which shares some similarities with games like Super Mario and Flappy 
 # 5. Credits
 * [Free high quality sprites from gameart2d](http://www.gameart2d.com/)
 * [Konstantin Simeonov - Jumping Pikachu Live Demo](https://www.youtube.com/watch?v=lQjllghKKxw)
-* [Sound effects]()
+* [Sound effects](https://www.youtube.com/watch?v=OZdIbJZdSZw)
 * [Background image]()
