@@ -1,7 +1,9 @@
 /*globals $ window document */
 
 function loseLife(player, sprite, ctx) {
-    let countLives, $lifeIcon, isDead = false;
+    let countLives,
+        $lifeIcon,
+        isDead = false;
 
     ctx.clearRect(
         0,
@@ -10,20 +12,28 @@ function loseLife(player, sprite, ctx) {
         height
     );
 
+    countLives = $('svg use').length;
+    $lifeIcon = $('svg use')[countLives - 1];
+
+    //refresh ninja when life is lost
+    for (let i = 0; i < countLives + 1; i += 1) {
+        $('#player-canvas').fadeOut(250);
+        $('#player-canvas').fadeIn(250);
+    }
+
+
+    countLives -= 1;
+    $($lifeIcon).fadeOut(300);
+    $($lifeIcon).remove();
+
     enemies = [];
     createEnemy(width);
     spawnEnemies();
 
     player.coordinates = {
-        x: 10,
+        x: sprite.width,
         y: height - sprite.height
     };
-
-    countLives = $('svg use').length;
-    $lifeIcon = $('svg use')[countLives - 1];
-    countLives -= 1;
-    $($lifeIcon).fadeOut(300);
-    $($lifeIcon).remove();
 
     if (countLives === 0) {
         sounds.playGameOver();
@@ -37,5 +47,4 @@ function loseLife(player, sprite, ctx) {
         isDead = true;
         return isDead;
     }
-
 }
