@@ -17,8 +17,8 @@ function loseLife(player, sprite, ctx) {
 
     //refresh ninja when life is lost
     for (let i = 0; i < countLives + 1; i += 1) {
-        $('#player-canvas').fadeOut(250);
-        $('#player-canvas').fadeIn(250);
+        $('#player-canvas').fadeTo(250, 0);
+        $('#player-canvas').fadeTo(250, 1);
     }
 
 
