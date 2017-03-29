@@ -71,7 +71,7 @@ function gameEngine() {
         loopTickPerFrame: 3
     });
 
-    document.addEventListener('keydown', function(event) {
+    document.addEventListener('keydown', function (event) {
         switch (event.keyCode) {
             case 37: // left
                 if (ninjaBody.speed.x < 0) {
@@ -101,7 +101,7 @@ function gameEngine() {
         }
     });
 
-    window.addEventListener('keyup', function(event) {
+    window.addEventListener('keyup', function (event) {
         if ((event.keyCode !== 37) && (event.keyCode !== 39)) {
             return;
         }

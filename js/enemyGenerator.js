@@ -1,9 +1,9 @@
 const width = 924,
-    height = 613,
+    height = 612,
     framesNumber = 10,
     distanceBetweenSpawningEnemies = 120;
 
-    var enemies = [];
+let enemies = [];
 
 function createEnemy(offsetX) {
 
@@ -24,9 +24,18 @@ function createEnemy(offsetX) {
     });
 
     let enemyBody = createPhysicalObject({
-        coordinates: { x: offsetX + 19, y: height - enemySprite.height + 1 },
-        defaultAcceleration: { x: 5, y: 0 },
-        speed: { x: -5, y: 0 },
+        coordinates: {
+            x: offsetX + 19,
+            y: height - enemySprite.height + 1
+        },
+        defaultAcceleration: {
+            x: 5,
+            y: 0
+        },
+        speed: {
+            x: -5,
+            y: 0
+        },
         width: enemySprite.width,
         height: enemySprite.height
     });
@@ -38,7 +47,7 @@ function createEnemy(offsetX) {
 }
 
 function spawnEnemies() {
-    
+
     if (Math.random() < 0.005) {
         if (enemies.length) {
             var lastEnemy = enemies[enemies.length - 1];
