@@ -15,9 +15,10 @@
     return iconSVG;
 }*/
 
-function createLifeIcons(count, SVGicon) {
+$(function createLifeIcons(count) {
     let useTag = document.createElementNS('http://www.w3.org/2000/svg', 'use'),
-        trX;
+        trX,
+        SVGicon = document.getElementById('Capa_1');
 
     useTag.setAttributeNS('http://www.w3.org/1999/xlink', 'href', '#main-svg-icon');
 
@@ -27,11 +28,4 @@ function createLifeIcons(count, SVGicon) {
         newIcon.setAttributeNS(undefined, 'transform', trX);
         SVGicon.appendChild(newIcon);
     }
-}
-
-function createSVGstart() {
-    let svg = document.getElementById('Capa_1');
-    createLifeIcons(3, svg);
-}
-
-window.onload = createSVGstart();
+}(3));
